@@ -1,0 +1,4 @@
+.DS_Store
+.idea/
+lf2/credential.py
+__pycache__
