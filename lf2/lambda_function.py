@@ -30,7 +30,7 @@ def lambda_handler(event, context):
             "query": {
                 "function_score": {
                     "query": {
-                        "match": {"Restaurant.cuisine": req["cuisine"]},
+                        "match": {"Restaurant.cuisine": req["Cuisine"]},
                     },
                     "random_score": {}
                 },
@@ -44,9 +44,9 @@ def lambda_handler(event, context):
         print(restaurants)
 
         # send sms
-        sns.publish(PhoneNumber=req["phone"], Message=(
-            f"Hello! Here are my {req['cuisine']} restaurant "
-            f"suggestions for {req['people']} people, for {req['date']} at {req['time']}: "
+        sns.publish(PhoneNumber=req["PhoneNumber"], Message=(
+            f"Hello! Here are my {req['Cuisine']} restaurant "
+            f"suggestions for {req['NumberOfPeople']} people, for {req['DiningDate']} at {req['DiningTime']}: "
             f"1. {restaurants[0]['name']}, located at {''.join(restaurants[0]['location']['display_address'])}, "
             f"2. {restaurants[1]['name']}, located at {''.join(restaurants[1]['location']['display_address'])}, "
             f"3. {restaurants[2]['name']}, located at {''.join(restaurants[2]['location']['display_address'])}. "
