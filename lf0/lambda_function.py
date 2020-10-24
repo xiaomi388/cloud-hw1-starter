@@ -10,7 +10,6 @@ def lambda_handler(event, context):
         userId= 'user1',
         inputText= temp['messages'][0]['unstructured']['text']
     )
-    print(response)
     return {
         'statusCode': 200,
         'headers': {
