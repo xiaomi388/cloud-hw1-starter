@@ -1,15 +1,26 @@
 # Chatbot Concierge #
 
-## About ##
+## Team Members
 
-Frontend starter repository for HW 1 of the Cloud Computing & Big Data
-class at Columbia University and New York University.
+Shiqi Fan: snf2125 snf2125@columbia.edu
 
-## Usage ##
+Yufan Chen:  yc3858 yc3858@columbia.edu
 
-1. Clone the repository.
-2. Replace `/assets/js/sdk/apigClient.js` with your own SDK file from API
-   Gateway.
-3. Open `chat.html` in any browser.
-4. Start sending messages to test the chatbot interaction.
+
+## Folder Structure
+
+- api gateway: contains the swagger file for the api gateway. 
+the api gateway service is located in region us-west-1
+- lf0: lambda function, located in region us-west-1
+- lf1: lambda function, located in region us-east-1
+- lf2: lambda function, located in region us-west-1
+- s3: the frontend code, located in region us-west-1
+- yelp:
+    - db.py: scrape restaurants from yelp and save 
+    restaurants into `restaurants.json`, then push all
+    data to aws dynamodb
+    - es.py: read data from `restaurants.json`, then push
+    cuisine and id of every restaurant to aws elasticsearch
+    - the dynamodb service is located in us-west-1
+    - the elasticsearch service is located in us-west-1
 
